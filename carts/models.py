@@ -42,6 +42,12 @@ class Cart(models.Model):
             item_count += cart_item.quantity
         return item_count
 
+    def get_cart_total(self):
+        item_total = 0
+        for cart_item in self.cartitem_set.all():
+            item_total += cart_item.get_total_value()
+        return item_total
+
 
 class CartItem(models.Model):
     user = models.ForeignKey(
@@ -62,4 +68,3 @@ class CartItem(models.Model):
 
     def get_total_value(self):
         return self.price * self.quantity
-
