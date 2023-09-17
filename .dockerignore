@@ -6,3 +6,4 @@ example.env
 README.md
 *Dockerfile
 docker-compose.yml
+db.sqlite3

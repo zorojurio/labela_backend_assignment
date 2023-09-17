@@ -1,11 +1,11 @@
-FROM python:3.10
+FROM python:3.9
 LABEL author='Label A'
 
 WORKDIR /app
 
 # Environment
-RUN apt-get update
-RUN apt-get install -y bash vim nano postgresql-client
+RUN apt update
+RUN apt install -y bash vim nano postgresql-client
 RUN pip install --upgrade pip
 
 # Major pinned python dependencies
