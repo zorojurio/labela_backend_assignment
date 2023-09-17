@@ -1,6 +1,6 @@
 from django.urls import path
 
-from products.views import ProductViewSet
+from products.views import ProductViewSet, ProductOverview
 from rest_framework import renderers
 
 product_list = ProductViewSet.as_view({
@@ -22,6 +22,7 @@ product_delete = ProductViewSet.as_view({
 
 urlpatterns = [
     path('', product_list, name='product-detail'),
+    path('overview/', ProductOverview.as_view(), name='product-overview'),
     path('create/', product_create, name='product-create'),
     path('<int:pk>/', product_detail, name='product-detail'),
     path('<int:pk>/update/', product_update, name='product-update'),
