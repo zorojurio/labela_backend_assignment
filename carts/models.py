@@ -1,9 +1,12 @@
 from django.conf import settings
 from django.db import models
 
+from common.logger import module_logger
 from products.models import Product
 
 User = settings.AUTH_USER_MODEL
+
+logger = module_logger(__name__)
 
 
 class CartManager(models.Manager):
@@ -18,8 +21,10 @@ class CartManager(models.Manager):
         qs = self.get_queryset().filter(user=request.user, active=True)
         if qs.exists() and qs.count() == 1:
             cart_obj = qs.first()
+            logger.debug('Cart Exists')
         else:
             cart_obj = Cart.objects.new(user=request.user)
+            logger.debug('New Cart Created')
         return cart_obj
 
 
