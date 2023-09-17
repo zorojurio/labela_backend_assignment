@@ -1,3 +1,5 @@
+import uuid
+
 from django.conf import settings
 from django.db import models
 
@@ -15,24 +17,20 @@ class OrderItem(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
     quantity = models.IntegerField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    delivery_date = models.DateTimeField()
-    line_item_cost = models.DecimalField(
-        max_digits=7, decimal_places=2, default=0.00)
-    line_item_total_cost = models.DecimalField(
-        max_digits=7, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"Order Item: {self.item.title} {self.id}"
 
+    def get_total_value(self):
+        return self.price * self.quantity
+
 
 class Order(models.Model):
-    order_id = models.CharField(max_length=120, blank=True)  # AB31DE3
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, blank=True, null=True)
+    order_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     active = models.BooleanField(default=True)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    total = models.DecimalField(
-        default=0.00, max_digits=100, decimal_places=2)
+    delivery_date = models.DateTimeField()
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -42,4 +40,10 @@ class Order(models.Model):
         verbose_name_plural = "Orders"
 
     def __str__(self):
-        return self.order_id
+        return f"{self.order_id}"
+
+    def get_total_order_value(self):
+        total = 0
+        for item in self.orderitem_set.all():
+            total += item.get_total_value()
+        return total
