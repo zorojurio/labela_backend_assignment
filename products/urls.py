@@ -22,9 +22,9 @@ product_delete = ProductViewSet.as_view({
 
 urlpatterns = [
     path('', product_list, name='product-detail'),
-    path('overview/', ProductOverview.as_view(), name='product-overview'),
-    path('create/', product_create, name='product-create'),
-    path('<int:pk>/', product_detail, name='product-detail'),
-    path('<int:pk>/update/', product_update, name='product-update'),
+    path('overview', ProductOverview.as_view(), name='product-overview'),
+    path('create', product_create, name='product-create'),
+    path('<int:pk>', product_detail, name='product-detail'),
+    path('<int:pk>/update', product_update, name='product-update'),
     path('<int:pk>/delete', product_delete, name='product-delete'),
 ]
