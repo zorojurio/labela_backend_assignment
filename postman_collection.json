@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "274bd329-8f85-4162-b3cf-fa88327e616d",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19826852"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Product D\",\n  \"overview\": \"This is the overview of product D\",\n  \"price\": \"100\",\n  \"slug\": \"product-d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/create",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "view product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product overview",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTc2NTkwLCJpYXQiOjE2OTUwOTAxOTAsImp0aSI6Ijk1MzEzNTdiZWRiZTQ0YjFhMmI3MDViYTg5ZmVjYjBmIiwidXNlcl9pZCI6MX0.0aoXe0WQSG5wzHFOnOmAVU5J_6EWGCJPC0Sy5-KubMc"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/overview",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"overview"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update patch",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTc2NTkwLCJpYXQiOjE2OTUwOTAxOTAsImp0aSI6Ijk1MzEzNTdiZWRiZTQ0YjFhMmI3MDViYTg5ZmVjYjBmIiwidXNlcl9pZCI6MX0.0aoXe0WQSG5wzHFOnOmAVU5J_6EWGCJPC0Sy5-KubMc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CSRFTOKEN",
+								"value": "0W4osx95KTW8KJjgNdywdvezIWq7o5OjxEKTyoGLCnnKpehaiQzgepTaWG5hGeqK"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Product\",\n  \"overview\": \"this is the overview of the updated product\",\n  \"price\": \"145\",\n  \"slug\": \"updated-product\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/1/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Put",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTc2NTkwLCJpYXQiOjE2OTUwOTAxOTAsImp0aSI6Ijk1MzEzNTdiZWRiZTQ0YjFhMmI3MDViYTg5ZmVjYjBmIiwidXNlcl9pZCI6MX0.0aoXe0WQSG5wzHFOnOmAVU5J_6EWGCJPC0Sy5-KubMc"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CSRFTOKEN",
+								"value": "0W4osx95KTW8KJjgNdywdvezIWq7o5OjxEKTyoGLCnnKpehaiQzgepTaWG5hGeqK"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Product put\",\n  \"overview\": \"this is the overview of the updated product\",\n  \"price\": \"145\",\n  \"slug\": \"updated-product\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/1/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"1",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTc2NTkwLCJpYXQiOjE2OTUwOTAxOTAsImp0aSI6Ijk1MzEzNTdiZWRiZTQ0YjFhMmI3MDViYTg5ZmVjYjBmIiwidXNlcl9pZCI6MX0.0aoXe0WQSG5wzHFOnOmAVU5J_6EWGCJPC0Sy5-KubMc"
+							},
+							{
+								"key": "X-CSRFTOKEN",
+								"value": "0W4osx95KTW8KJjgNdywdvezIWq7o5OjxEKTyoGLCnnKpehaiQzgepTaWG5hGeqK"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/1/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"1",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTc2NTkwLCJpYXQiOjE2OTUwOTAxOTAsImp0aSI6Ijk1MzEzNTdiZWRiZTQ0YjFhMmI3MDViYTg5ZmVjYjBmIiwidXNlcl9pZCI6MX0.0aoXe0WQSG5wzHFOnOmAVU5J_6EWGCJPC0Sy5-KubMc"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/products/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "add product to cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"item\": 3,\n        \"quantity\": 50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/cart/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "make order",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"delivery_date\": \"2023-12-10T13:45:00.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/order/checkout",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"order",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove item from cart",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTg0Mjc1LCJpYXQiOjE2OTUwOTc4NzUsImp0aSI6IjI5NWM3ZDkxM2M0ZDQ3Y2NiYjAyODFlNzRjODY4Yzc5IiwidXNlcl9pZCI6MX0.eut5QuaEehSE4-qRUeolJcjB6pwDmHWEZdj2_riLbP8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk1MTc2NTkwLCJpYXQiOjE2OTUwOTAxOTAsImp0aSI6Ijk1MzEzNTdiZWRiZTQ0YjFhMmI3MDViYTg5ZmVjYjBmIiwidXNlcl9pZCI6MX0.0aoXe0WQSG5wzHFOnOmAVU5J_6EWGCJPC0Sy5-KubMc"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/cart/3",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"cart",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

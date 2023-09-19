@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Environment
 RUN apt update
-RUN apt install -y bash vim nano postgresql-client
+RUN apt install -y bash vim nano postgresql-client  python3-dev libpq-dev
 RUN pip install --upgrade pip
 
 # Major pinned python dependencies

@@ -27,7 +27,7 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-    order_id = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
+    order_id = models.UUIDField(default=uuid.uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     active = models.BooleanField(default=True)
     delivery_date = models.DateTimeField()

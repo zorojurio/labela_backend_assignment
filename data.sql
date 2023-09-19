@@ -1,3 +1,5 @@
 insert into main.products_product (title, overview, price, active, slug, timestamp, updated) values ('ProductA', 'This is the overview of Product A', 25, 1, 'product-a', '2023-09-19 02:00:49.514506', '2023-09-19 02:00:49.514530');
 insert into main.products_product (title, overview, price, active, slug, timestamp, updated) values ('ProductB', 'this is the overview of Product B', 50, 1, 'product-b', '2023-09-19 02:01:15.279439', '2023-09-19 02:01:15.279466');
 insert into main.products_product (title, overview, price, active, slug, timestamp, updated) values ('ProductC', 'This is the overview of ProductC', 75, 1, 'product-c', '2023-09-19 02:01:53.579712', '2023-09-19 02:01:53.579728');
+insert into public.auth_user (password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined)
+values  ('pbkdf2_sha256$320000$O6DEPdcDlAWKhxD0dkls1V$6MU5418d7R0crrgsPoJVphEk0Tpx+s6iaGvA5O23zL8=', null, true, 'admin', '', '', '', true, true, '2023-09-19 04:29:22.834943 +00:00');
