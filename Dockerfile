@@ -19,7 +19,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 RUN ./manage.py collectstatic --noinput
-
+RUN ./manage.py makemigrations
+RUN ./manage.py migrate
 # Ops Parameters
 ENV WORKERS=2
 ENV PORT=80

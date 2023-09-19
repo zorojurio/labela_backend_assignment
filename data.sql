@@ -1,0 +1,3 @@
+insert into main.products_product (title, overview, price, active, slug, timestamp, updated) values ('ProductA', 'This is the overview of Product A', 25, 1, 'product-a', '2023-09-19 02:00:49.514506', '2023-09-19 02:00:49.514530');
+insert into main.products_product (title, overview, price, active, slug, timestamp, updated) values ('ProductB', 'this is the overview of Product B', 50, 1, 'product-b', '2023-09-19 02:01:15.279439', '2023-09-19 02:01:15.279466');
+insert into main.products_product (title, overview, price, active, slug, timestamp, updated) values ('ProductC', 'This is the overview of ProductC', 75, 1, 'product-c', '2023-09-19 02:01:53.579712', '2023-09-19 02:01:53.579728');

@@ -13,8 +13,8 @@ class Product(models.Model):
     )
     active = models.BooleanField(default=True)
     slug = models.SlugField(blank=True, unique=True)
-    timestamp = models.DateField(auto_now_add=True)
-    updated = models.DateField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'{self.title}'

@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.db.models import Sum, F
 
 from common.logger import module_logger
 from products.models import Product
@@ -42,16 +43,10 @@ class Cart(models.Model):
         return str(self.id)
 
     def get_item_count(self):
-        item_count = 0
-        for cart_item in self.cartitem_set.all():
-            item_count += cart_item.quantity
-        return item_count
+        return self.cartitem_set.aggregate(item_count=Sum('quantity'))['item_count'] or 0
 
     def get_cart_total(self):
-        item_total = 0
-        for cart_item in self.cartitem_set.all():
-            item_total += cart_item.get_total_value()
-        return item_total
+        return self.cartitem_set.aggregate(cart_total=Sum(F('price') * F('quantity')))['cart_total'] or 0
 
 
 class CartItem(models.Model):

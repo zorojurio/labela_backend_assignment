@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -10,6 +11,8 @@ logger = module_logger(__name__)
 
 
 class OrderCreateAPIView(APIView):
+
+    @extend_schema(responses=OrderSerializer, request=OrderCreateSerializer)
     def post(self, request, *args, **kwargs):
         data = request.data
         logger.debug(f'Data {data}')

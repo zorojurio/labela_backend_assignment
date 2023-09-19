@@ -2,6 +2,7 @@ import uuid
 
 from django.conf import settings
 from django.db import models
+from django.db.models import Sum, F
 
 from carts.models import CartItem, Cart
 from products.models import Product
@@ -43,7 +44,4 @@ class Order(models.Model):
         return f"{self.order_id}"
 
     def get_total_order_value(self):
-        total = 0
-        for item in self.orderitem_set.all():
-            total += item.get_total_value()
-        return total
+        return self.orderitem_set.aggregate(order_total=Sum(F('price')*F('quantity')))['order_total'] or 0

@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -26,6 +27,7 @@ class ProductViewSet(StaffEditorPermissionMixin, viewsets.ModelViewSet):
 
 
 class ProductOverview(APIView):
+    @extend_schema(responses=ProductOverviewSerializer)
     def get(self, request, *args, **kwargs):
         logger.info('ProductOverview getting overview')
         products_qs = Product.objects.all()

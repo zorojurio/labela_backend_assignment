@@ -1,4 +1,5 @@
-from rest_framework.generics import get_object_or_404
+from drf_spectacular.utils import extend_schema
+from rest_framework.generics import get_object_or_404, GenericAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -11,8 +12,9 @@ logger = module_logger(__name__)
 
 
 class CartRemoveView(APIView):
+    @extend_schema(responses=CartSerializer)
     def get(self, request, *args, **kwargs):
-        product_id = kwargs.get('pk')
+        product_id = kwargs.get('product_id')
         logger.info(f'Removing cart data for product id {product_id}')
         cart = Cart.objects.new_or_get(request)
         for cart_item in cart.cartitem_set.all():
@@ -23,7 +25,9 @@ class CartRemoveView(APIView):
         return Response(cart_serializer.data)
 
 
-class CartView(APIView):
+class CartView(GenericAPIView):
+
+    @extend_schema(responses=CartSerializer, request=CartItemSerializer)
     def post(self, request, *args, **kwargs):
         logger.info('Adding to Cart started')
         data = request.data

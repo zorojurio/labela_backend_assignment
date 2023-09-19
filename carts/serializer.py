@@ -1,3 +1,5 @@
+import decimal
+
 from rest_framework import serializers
 
 from carts.models import CartItem, Cart
@@ -16,7 +18,7 @@ class CartListCartItemSerializer(serializers.ModelSerializer):
             'total'
         ]
 
-    def get_total(self, obj: CartItem):
+    def get_total(self, obj: CartItem) -> float:
         return obj.get_total_value()
 
 
@@ -34,10 +36,10 @@ class CartSerializer(serializers.ModelSerializer):
             'count'
         ]
 
-    def get_total(self, obj: Cart):
+    def get_total(self, obj: Cart) -> int:
         return obj.get_cart_total()
 
-    def get_count(self, obj: Cart):
+    def get_count(self, obj: Cart) -> float:
         return obj.get_item_count()
 
 
