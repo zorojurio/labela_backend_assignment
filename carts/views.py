@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from carts.models import Cart
-from carts.serializer import CartItemSerializer, CartSerializer
+from carts.serializer import CartItemSerializer, CartSerializer, CartItemRequestSerializer
 from common.logger import module_logger
 from products.models import Product
 
@@ -27,7 +27,7 @@ class CartRemoveView(APIView):
 
 class CartView(GenericAPIView):
 
-    @extend_schema(responses=CartSerializer, request=CartItemSerializer)
+    @extend_schema(responses=CartSerializer, request=CartItemRequestSerializer)
     def post(self, request, *args, **kwargs):
         logger.info('Adding to Cart started')
         data = request.data

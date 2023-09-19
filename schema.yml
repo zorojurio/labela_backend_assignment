@@ -222,7 +222,8 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CartItem'
+              $ref: '#/components/schemas/CartItemRequest'
+        required: true
       security:
       - jwtAuth: []
       responses:
@@ -444,16 +445,16 @@ components:
       - count
       - id
       - total
-    CartItem:
+    CartItemRequest:
       type: object
       properties:
         item:
-          type: string
-          readOnly: true
+          type: integer
         quantity:
           type: integer
       required:
       - item
+      - quantity
     CartListCartItem:
       type: object
       properties:
@@ -467,6 +468,8 @@ components:
           pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
         quantity:
           type: integer
+          maximum: 2147483647
+          minimum: 0
         total:
           type: number
           format: double
@@ -519,6 +522,8 @@ components:
           pattern: ^-?\d{0,5}(?:\.\d{0,2})?$
         quantity:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         order_item_total:
           type: string
           readOnly: true

@@ -52,3 +52,8 @@ class CartItemSerializer(serializers.ModelSerializer):
             'item',
             'quantity'
         ]
+
+
+class CartItemRequestSerializer(serializers.Serializer):
+    item = serializers.IntegerField()
+    quantity = serializers.IntegerField()
